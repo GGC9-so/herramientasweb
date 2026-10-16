@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculadora de porcentajes online gratis: calcula el X% de un número, qué porcentaje es un número de otro, y más. Con explicación paso a paso." />
+  <title>Calculadora de Porcentajes Online · Gratis y Rápida</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Calculadora de Porcentajes Online · Gratis y Rápida" />
+  <meta property="og:description" content="Calcula el X% de un número, qué porcentaje es uno de otro, y más. Con explicación paso a paso." />
+  <meta property="og:url" content="https://GGC9-so.github.io/herramientasweb/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calculadora de Porcentajes Online · Gratis y Rápida" />
+  <meta name="twitter:description" content="Calcula el X% de un número, qué porcentaje es uno de otro, y más." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark" aria-hidden="true">H</span>
+        <span class="logo-text">Herramientas<em>Web</em></span>
+      </a>
+      <div class="header-actions">
+        <nav aria-label="Navegación principal">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="porcentaje.html" class="is-active">Porcentajes</a></li>
+            <li><a href="edad.html">Edad</a></li>
+            <li><a href="unidades.html">Unidades</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Calculadora de porcentajes</h1>
+        <p class="hero-sub">
+          Calcula porcentajes al instante, con explicación paso a paso y sin publicidad molesta.
+        </p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" role="tab" aria-selected="true" data-tab="modo1">
+          Porcentaje de un número
+        </button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="modo2">
+          Qué % es un número de otro
+        </button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="modo3">
+          Total a partir de un %
+        </button>
+      </div>
+
+      <div class="calc-card">
+        <!-- Modo 1 -->
+        <div class="tab-panel is-active" id="modo1" role="tabpanel">
+          <p class="calc-question">¿Cuánto es un porcentaje de un número?</p>
+          <div class="inputs">
+            <div class="input-group">
+              <label for="m1-x">Porcentaje (%)</label>
+              <input id="m1-x" type="number" inputmode="decimal" />
+            </div>
+            <div class="input-group">
+              <label for="m1-y">Número</label>
+              <input id="m1-y" type="number" inputmode="decimal" />
+            </div>
+          </div>
+          <div class="result-box">
+            <span class="result-label">Resultado</span>
+            <span class="result-value" id="m1-result"></span>
+          </div>
+          <div class="steps" id="m1-steps"></div>
+        </div>
+
+        <!-- Modo 2 -->
+        <div class="tab-panel" id="modo2" role="tabpanel">
+          <p class="calc-question">¿Qué porcentaje representa un número de otro?</p>
+          <div class="inputs">
+            <div class="input-group">
+              <label for="m2-x">Número X</label>
+              <input id="m2-x" type="number" inputmode="decimal" />
+            </div>
+            <div class="input-group">
+              <label for="m2-y">Número Y</label>
+              <input id="m2-y" type="number" inputmode="decimal" />
+            </div>
+          </div>
+          <div class="result-box">
+            <span class="result-label">Resultado</span>
+            <span class="result-value" id="m2-result"></span>
+          </div>
+          <div class="steps" id="m2-steps"></div>
+        </div>
+
+        <!-- Modo 3 -->
+        <div class="tab-panel" id="modo3" role="tabpanel">
+          <p class="calc-question">Si un número es un porcentaje, ¿cuál es el total?</p>
+          <div class="inputs">
+            <div class="input-group">
+              <label for="m3-x">Número parcial</label>
+              <input id="m3-x" type="number" inputmode="decimal" />
+            </div>
+            <div class="input-group">
+              <label for="m3-y">Porcentaje (%)</label>
+              <input id="m3-y" type="number" inputmode="decimal" />
+            </div>
+          </div>
+          <div class="result-box">
+            <span class="result-label">Total</span>
+            <span class="result-value" id="m3-result"></span>
+          </div>
+          <div class="steps" id="m3-steps"></div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" id="copy-btn">Copiar resultado</button>
+          <button class="btn btn-ghost" id="clear-btn">Limpiar historial</button>
+        </div>
+      </div>
+
+      <div class="history" id="history-wrap">
+        <h2>Historial</h2>
+        <ul id="history-list">
+          <li class="history-empty">Aún no hay cálculos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section container" id="como-funciona">
+      <h2 class="block-title">¿Cómo se calculan los porcentajes?</h2>
+      <p>
+        Un porcentaje es una forma de expresar una parte de un total dividido en 100.
+        Estos son los tres casos más comunes, con la fórmula exacta:
+      </p>
+      <ul class="formulas">
+        <li><strong>¿Cuánto es X% de Y?</strong> → <code>(X / 100) × Y</code></li>
+        <li><strong>¿Qué % es X de Y?</strong> → <code>(X / Y) × 100</code></li>
+        <li><strong>Si X es el Y%, ¿cuál es el total?</strong> → <code>X / (Y / 100)</code></li>
+      </ul>
+      <p class="note">
+        Todos los cálculos se hacen en tu navegador. No se envía nada a ningún servidor.
+      </p>
+    </section>
+
+    <section class="section container" id="faq">
+      <h2 class="block-title">Preguntas frecuentes</h2>
+
+      <details>
+        <summary>¿Es gratis?</summary>
+        <p>Sí, totalmente gratis y sin necesidad de registro.</p>
+      </details>
+
+      <details>
+        <summary>¿Funciona en el móvil?</summary>
+        <p>Sí, está diseñada para usarse en el móvil sin problemas.</p>
+      </details>
+
+      <details>
+        <summary>¿Guarda mis datos?</summary>
+        <p>No. Los cálculos se hacen en tu navegador y el historial solo se guarda en tu propio dispositivo.</p>
+      </details>
+
+      <details>
+        <summary>¿Puedo usarla para calcular descuentos?</summary>
+        <p>Sí. Usa el modo 1: por ejemplo, si algo cuesta 80 y tiene 15% de descuento, calcula el 15% de 80 (12) y réstalo.</p>
+      </details>
+    </section>
+  </main>
+
+    <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-logo">HerramientasWeb</p>
+        <p class="footer-note">Utilidades online gratis, sin registro y sin instalar nada.</p>
+      </div>
+      <nav aria-label="Enlaces legales">
+        <ul>
+          <li><a href="acerca.html">Acerca de</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> HerramientasWeb · Hecho con cariño.</p>
+  </footer>
+
+  <script src="calc.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://GGC9-so.github.io/herramientasweb/sitemap.xml
